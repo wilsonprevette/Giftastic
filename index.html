@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parks and Rec GIFs!</title>
+</head>
+<body>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        let topics = ["Leslie Knope", "Ann Perkins", "Tom Haverford", "Mark Brendanawicz", "Ron Swanson", "April Ludgate", "Andy Dwyer", 
+        "Ben Wyatt", "Chris Traeger", "Jerry Gergich", "Donna Meagle", "Craig Middlebrooks", "Jean-Ralphio Saperstein", "Mona-Lisa Saperstein", 
+        "Lil Sebastian", "Ginuwine"];
+        const apiKey = CBjr7jUTeFNRpmHuzWW1wKDTo18EUYXN;
+        var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=CBjr7jUTeFNRpmHuzWW1wKDTo18EUYXN";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+    </script>
+</body>
+</html>
+
