@@ -6,10 +6,12 @@
 <body>
     <h1>Search for your favorite GIFs!</h1>
 
-    <div id="btn-container"></div>
+    <div class="wholeContainer">
+        <div id="btn-container"></div>
+        <div id="gif-container"></div>
+    </div>
 
-    <div id="gif-container"></div>
-
+    <input type="text" id="gifSearch">
     <input type="button" id="newBtn" value="Add button!">
     <input type="button" id="deleteBtn" value="Delete button!">
     <input type="button" id="clearAll" value="Clear!">
@@ -17,23 +19,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     //create list of topics
-        var topics = ["Leslie Knope", "Ann Perkins", "Tom Haverford", "Ron Swanson", "April Ludgate", "Andy Dwyer", 
-        "Ben Wyatt", "Chris Traeger", "Jerry Gergich", "Donna Meagle"];
+        let topics = ["Leslie Knope", "Ann Perkins", "Tom Haverford", "Ron Swanson", "April Ludgate", "Andy Dwyer", 
+        "Jerry Gergich", "Donna Meagle"];
     //create function that creates buttons for each topic
-    function topicButtons() {
+    function createButtons() {
         $("#btn-container").empty();
         for (i = 0; i < topics.length; i++){
-            let btn = $("<button>");
-            btn.text(topics[i]);
-            $("#btn-container").append(btn);
+            let a = $("<button>");
+            a.addClass("btn");
+            a.attr("topic-name", topics[i]);
+            a.text(topics[i]);
+            $("#btn-container").append(a);
+            console.log(topics[i]);
         }
     }
 
-    //create function for po"pulating gifs
+    //create function for populating gifs
     function gifRetrieve (){
         //create variables for api key and queryurl    
         const apiKey = CBjr7jUTeFNRpmHuzWW1wKDTo18EUYXN;
-        var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=CBjr7jUTeFNRpmHuzWW1wKDTo18EUYXN";
+        let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=CBjr7jUTeFNRpmHuzWW1wKDTo18EUYXN=20";
         //create ajax call
     $.ajax({
       url: queryURL,
