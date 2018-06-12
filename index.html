@@ -8,31 +8,35 @@
 
     <div class="wholeContainer">
         <div id="btn-container"></div>
-        <div id="gif-container"></div>
-    </div>
+    <br>
 
     <input type="text" id="gifSearch">
     <input type="button" id="newBtn" value="Add button!">
     <input type="button" id="deleteBtn" value="Delete button!">
     <input type="button" id="clearAll" value="Clear!">
+    <br>
+
+    <div id="gif-container"></div>
+
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-    //create list of topics
-        let topics = ["Leslie Knope", "Ann Perkins", "Tom Haverford", "Ron Swanson", "April Ludgate", "Andy Dwyer", 
+    //List of topics
+        var topics = ["Leslie Knope", "Ann Perkins", "Tom Haverford", "Ron Swanson", "April Ludgate", "Andy Dwyer", 
         "Jerry Gergich", "Donna Meagle"];
     //create function that creates buttons for each topic
     function createButtons() {
         $("#btn-container").empty();
         for (i = 0; i < topics.length; i++){
-            let a = $("<button>");
+            var a = $("<button>");
             a.addClass("btn");
             a.attr("topic-name", topics[i]);
             a.text(topics[i]);
             $("#btn-container").append(a);
             console.log(topics[i]);
-        }
-    }
+        };
+    };
 
     //create function for populating gifs
     function gifRetrieve (){
@@ -47,7 +51,8 @@
       console.log(response);
       //create for loop to retrieve and display data
       for (i=0; i < response.data.length; i++) {
-
+          let jiffDiv = $("<div>");
+          let jiff = ("<img>");
       }
     });
 
